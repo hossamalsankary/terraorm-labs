@@ -1,8 +1,18 @@
+# get availability zones
+data "aws_availability_zones" "available" {
+  state = "available"
+
+  filter {
+    name   = "zone-type"
+    values = ["availability-zone"]
+  }
+}
+
 module "networking" {
   source = "./modules/Networking"
   vpc_cider = var.vpc_cider
   subnets_cirder = var.subnets_cirder
-  availability_zone = var.availability_zone
+  availability_zone = slice(data.aws_availability_zones.available.names, 0, 2)
 }
 
 module "computing" {
@@ -19,3 +29,4 @@ module "computing" {
   max_size          = var.max_size
   desired_capacity  = var.desired_capacity
 }
+

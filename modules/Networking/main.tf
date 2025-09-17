@@ -60,7 +60,7 @@ resource "aws_subnet" "private_subnet" {
   count = 2
   vpc_id                  = aws_vpc.route_project.id
   cidr_block              = var.subnets_cirder[count.index + 2]
-  availability_zone       = var.availability_zone[count.index + 2]
+  availability_zone       = var.availability_zone[count.index ]
 
   tags = {
     Name = "${local.project}-private_subnet_${count.index + 2}"
