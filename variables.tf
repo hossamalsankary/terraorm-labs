@@ -16,3 +16,33 @@ variable "availability_zone" {
   type = list(string)
   default = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
 }
+
+variable "instance_type" {
+  description = "EC2 instance type for the web servers"
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "key_pair_name" {
+  description = "Name of the key pair for SSH access (optional)"
+  type        = string
+  default     = null
+}
+
+variable "min_size" {
+  description = "Minimum number of instances in the autoscaling group"
+  type        = number
+  default     = 1
+}
+
+variable "max_size" {
+  description = "Maximum number of instances in the autoscaling group"
+  type        = number
+  default     = 5
+}
+
+variable "desired_capacity" {
+  description = "Desired number of instances in the autoscaling group"
+  type        = number
+  default     = 2
+}

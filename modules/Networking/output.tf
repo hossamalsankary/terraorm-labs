@@ -4,7 +4,7 @@ output "vpc_id" {
 
 
 
-output "Private_subnets_list" {
+output "private_subnets_list" {
   value = [ aws_subnet.private_subnet[0].id , aws_subnet.private_subnet[1].id ]
 }
 
