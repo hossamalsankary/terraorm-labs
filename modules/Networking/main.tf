@@ -1,6 +1,6 @@
 
 locals {
-    project = "route_project"
+    project = "route_project-2"
     route_table_cidrs = "0.0.0.0/0"
 }
 
